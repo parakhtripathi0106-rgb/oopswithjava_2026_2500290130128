@@ -1,0 +1,35 @@
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class Main{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        try {
+        System.out.println("Enter your marks : ");
+        int marks = sc.nextInt();
+        if (marks<0){
+        throw new RuntimeException("Invalid Input. Marks below 0 do not exist");
+        } 
+        if(marks>100){
+            throw new RuntimeException("Marks above 100 are not allowed.");
+        }
+        System.out.println("Enter number of subjects : ");
+        int sub = sc.nextInt();
+        if(marks == 0){
+            throw new RuntimeException("Average with subject as 0 can't be resolved");
+        }
+        int avg = marks/sub;
+        System.out.println("Average is : " + avg);
+        
+    }catch (InputMismatchException e) {
+        System.out.println("Invalid Input. Input mismatched.");
+        }
+        catch(RuntimeException e){
+            System.out.println(e.getMessage());
+        }
+        finally{
+            System.out.println("The code is completed.");
+        }
+        sc.close();
+    }
+}

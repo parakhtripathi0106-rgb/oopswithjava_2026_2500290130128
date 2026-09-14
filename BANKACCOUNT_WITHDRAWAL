@@ -1,0 +1,40 @@
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class ticket{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int currBal = 2000;
+        try{
+            System.out.println("Enter amount: ");
+            int amt = sc.nextInt();
+            if(amt<=0){
+throw new InputMismatchException("Invalid Amount");
+            }
+            System.out.println("Enter the amount Balance");
+            int bal = sc.nextInt();
+            if(bal<=0){
+                throw new RuntimeException();
+            }
+            if(bal>currBal){
+                throw new RuntimeException("Insufficient Balance");
+            }
+            System.out.println("Balance information recovered");
+            System.out.println("Withdrawal"+ amt);
+            int p = currBal-amt;
+            System.out.println("Current Balance"+ p);
+        }
+        catch(InputMismatchException e){
+            System.out.println("Invalid Input.Please enter numbers only");
+        }
+        catch(RuntimeException e){
+            System.out.println(e.getMessage());
+
+        }
+finally{
+    System.out.println("Banking Code Completed");
+}
+sc.close();
+        
+    }
+}

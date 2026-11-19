@@ -1,6 +1,5 @@
 
 package com.example.studentmanagement;
-
 import java.util.List;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
